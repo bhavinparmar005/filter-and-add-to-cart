@@ -635,3 +635,18 @@ let obj = [
     price: "₹1,519",
   },
 ];
+
+
+let button = document.getElementById('submit');
+
+button.addEventListener('click',()=>{
+  let search = document.getElementById('search').value.toLowerCase();
+  console.log(search);
+  
+});
+
+let addToCart = document.getElementById('add_to_bag')
+
+addToCart.addEventListener('click',()=>{
+alert('hello')
+});
