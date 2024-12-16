@@ -1,32 +1,26 @@
-
-let getDataToLocalstorage = JSON.parse(localStorage.getItem('product'));
-
-getDataToLocalstorage.forEach((val,index) => {
-    let container = document.querySelector('.container');
-
-    container.innerHTML += `
-        <div class="cart_itam_main">
+<div class="cart_itam_main">
         <div class="cart_img_main">
-          <img src="${val.image}" alt="" />
+          <img src="./Asset/IMAGE/man/man-Shirts/1.avif" alt="" />
         </div>
         <div class="cart_item_details">
           <div class="product_brand">
             <h4>Brand Name :-</h4>
-            <span> ${val.brand}</span>
+            <span> Lorem ipsum dolor sit amet.</span>
           </div>
           <div class="product_details">
             <h4>Titele:-</h4>
             <span
-              >${val.title}
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+              iure delectus
             </span>
           </div>
 
           <div class="product_price">
-            <h4>Price:- <span> ${val.price} </span></h4>
+            <h4>Price:- <span>₹123</span></h4>
           </div>
 
           <div class="remove_to_cart">
-            <button id="remove_to_cart_button_main" onclick="removeToCart(${index})">
+            <button id="remove_to_cart_button_main">
               <div class="remove_icon">
                 <img src="./Asset/ICON/trash-solid.svg" alt="delet_icon" />
               </div>
@@ -48,19 +42,3 @@ getDataToLocalstorage.forEach((val,index) => {
           </div>
         </div>
       </div>
-    
-    `
-    
-    
-});
-
-function removeToCart(index){
-    getDataToLocalstorage.splice(index,1);
-    localStorage.setItem('product',JSON.stringify(getDataToLocalstorage));
-    
-}
-
-function deletAllDataToLocalStorage(){
-// alert("hello")
-    localStorage.clear();
-}
