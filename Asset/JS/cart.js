@@ -58,9 +58,12 @@ function removeToCart(index){
     getDataToLocalstorage.splice(index,1);
     localStorage.setItem('product',JSON.stringify(getDataToLocalstorage));
     
+    window.location.reload()
 }
 
 function deletAllDataToLocalStorage(){
 // alert("hello")
     localStorage.clear();
+
+    window.location.reload()
 }
