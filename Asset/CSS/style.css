@@ -182,13 +182,19 @@ ul li:hover::after {
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
-  height: auto;
-  background-color: aqua;
+  height: 100vh;
+  background-color: teal;
   border: 1px solid black;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  overflow: scroll;
 }
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
 .product_card {
   margin-top: 20px;
   width: 350px;

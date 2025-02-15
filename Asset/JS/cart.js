@@ -37,8 +37,8 @@ getDataToLocalstorage.forEach((val,index) => {
           <!-- continue shopping -->
 
           <div class="continue_soppping_button">
-            <a href="./index.html" target="_blank"
-              ><button id="continue">
+            <a href="./index.html" target="_blank">
+             <button id="continue">
                 <div class="continue_icon">
                   <img src="./Asset/ICON/thumbs-up-solid.svg" alt="" />
                 </div>
