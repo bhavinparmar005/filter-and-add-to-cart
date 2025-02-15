@@ -155,7 +155,7 @@ ul li:hover::after {
   /* border: 1px solid black; */
 }
 
-.counter {
+#counter {
   width: 22px;
   height: 22px;
   border: 1px solid black;
@@ -180,6 +180,7 @@ ul li:hover::after {
 .container {
   /* margin-top: 15px; */
   padding-top: 20px;
+  padding-bottom: 20px;
   width: 100%;
   height: auto;
   background-color: aqua;

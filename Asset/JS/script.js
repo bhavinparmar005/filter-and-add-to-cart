@@ -914,16 +914,28 @@ let obj = [
   },
 ];
 
+
+
+
+let counter = document.getElementById('counter');
+
+let get= JSON.parse(localStorage.getItem('product')) || [];
+
+counter.innerText = get.length
+
+
+
 let button = document.getElementById("submit");
+let container = document.querySelector(".container");
 
 button.addEventListener("click", () => {
   let search = document.getElementById("search").value.toLowerCase();
   console.log(search);
 });
 
-obj.forEach((val, index) => {
-  let container = document.querySelector(".container");
 
+obj.forEach((val, index) => {
+  
   container.innerHTML += `
 <div class="product_card">
   <div class="product_image">
@@ -953,7 +965,13 @@ obj.forEach((val, index) => {
   </div>
 
   <div class="add_to_bag_main">
-    <button id="add_to_bag" onclick="sendDataToLocalStorage('${val.image.replace(/'/g,"\\'")}','${val.brand.replace(/'/g, "\\'")}','${val.title.replace(/'/g,"\\'")}','${val.price.replace(/'/g, "\\'")}')">
+    <button id="add_to_bag" onclick="sendDataToLocalStorage('${val.image.replace(
+      /'/g,
+      "\\'"
+    )}','${val.brand.replace(/'/g, "\\'")}','${val.title.replace(
+    /'/g,
+    "\\'"
+  )}','${val.price.replace(/'/g, "\\'")}')">
       <span class="bag_icon">
         <img src="./Asset/ICON/bag-shopping-solid.svg" alt="" />
       </span>
@@ -966,24 +984,170 @@ obj.forEach((val, index) => {
 
 let allProduct = JSON.parse(localStorage.getItem("product")) || [];
 
-let cart_order = document.querySelector(".counter");
-let count = 0;
-
 function sendDataToLocalStorage(image, brand, title, price) {
   let product = { image, brand, title, price };
   allProduct.push(product);
 
   localStorage.setItem("product", JSON.stringify(allProduct));
-  count++;
-  cart_order.textContent = count;
+
+  window.location.reload()
+
+
 }
 
 function onlyMenCloath() {
-  alert("hello men");
+
+  container.innerHTML = "";
+  obj.filter((val) => {
+    if (val.category == "men") {
+      container.innerHTML += `
+      <div class="product_card">
+        <div class="product_image">
+          <img src="${val.image}" />
+        </div>
+      
+        <div class="brand_name">
+          <h3>${val.brand}</h3>
+        </div>
+        <div class="product_details">
+          <p>${val.title}</p>
+        </div>
+      
+        <div class="product_rating_main">
+          <div class="product_rating">
+            ${val.rating}
+            <span class="star_icon">
+              <img src="./Asset/ICON/star-solid.svg" alt="star icon" />
+            </span>
+            | ${val.ratingPeople}K
+          </div>
+        </div>
+      
+        <div class="price_main">
+          ${val.price} <del class="over_price">${val.totalPrice}</del>
+          <span class="off">(${val.off} off)</span>
+        </div>
+      
+        <div class="add_to_bag_main">
+          <button id="add_to_bag" onclick="sendDataToLocalStorage('${val.image.replace(
+            /'/g,
+            "\\'"
+          )}','${val.brand.replace(/'/g, "\\'")}','${val.title.replace(
+        /'/g,
+        "\\'"
+      )}','${val.price.replace(/'/g, "\\'")}')">
+            <span class="bag_icon">
+              <img src="./Asset/ICON/bag-shopping-solid.svg" alt="" />
+            </span>
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      `;
+    }
+  });
 }
 function onlyWomenCloath() {
   alert("hello women");
+  container.innerHTML = "";
+  obj.filter((val) => {
+    if (val.category == "women") {
+      container.innerHTML += `
+      <div class="product_card">
+        <div class="product_image">
+          <img src="${val.image}" />
+        </div>
+      
+        <div class="brand_name">
+          <h3>${val.brand}</h3>
+        </div>
+        <div class="product_details">
+          <p>${val.title}</p>
+        </div>
+      
+        <div class="product_rating_main">
+          <div class="product_rating">
+            ${val.rating}
+            <span class="star_icon">
+              <img src="./Asset/ICON/star-solid.svg" alt="star icon" />
+            </span>
+            | ${val.ratingPeople}K
+          </div>
+        </div>
+      
+        <div class="price_main">
+          ${val.price} <del class="over_price">${val.totalPrice}</del>
+          <span class="off">(${val.off} off)</span>
+        </div>
+      
+        <div class="add_to_bag_main">
+          <button id="add_to_bag" onclick="sendDataToLocalStorage('${val.image.replace(
+            /'/g,
+            "\\'"
+          )}','${val.brand.replace(/'/g, "\\'")}','${val.title.replace(
+        /'/g,
+        "\\'"
+      )}','${val.price.replace(/'/g, "\\'")}')">
+            <span class="bag_icon">
+              <img src="./Asset/ICON/bag-shopping-solid.svg" alt="" />
+            </span>
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      `;
+    }
+  });
 }
 function onlyKidsCloath() {
-  alert("hello Kid's");
+ 
+  container.innerHTML = "";
+  obj.filter((val) => {
+    if (val.category == "kids") {
+      container.innerHTML += `
+      <div class="product_card">
+        <div class="product_image">
+          <img src="${val.image}" />
+        </div>
+      
+        <div class="brand_name">
+          <h3>${val.brand}</h3>
+        </div>
+        <div class="product_details">
+          <p>${val.title}</p>
+        </div>
+      
+        <div class="product_rating_main">
+          <div class="product_rating">
+            ${val.rating}
+            <span class="star_icon">
+              <img src="./Asset/ICON/star-solid.svg" alt="star icon" />
+            </span>
+            | ${val.ratingPeople}K
+          </div>
+        </div>
+      
+        <div class="price_main">
+          ${val.price} <del class="over_price">${val.totalPrice}</del>
+          <span class="off">(${val.off} off)</span>
+        </div>
+      
+        <div class="add_to_bag_main">
+          <button id="add_to_bag" onclick="sendDataToLocalStorage('${val.image.replace(
+            /'/g,
+            "\\'"
+          )}','${val.brand.replace(/'/g, "\\'")}','${val.title.replace(
+        /'/g,
+        "\\'"
+      )}','${val.price.replace(/'/g, "\\'")}')">
+            <span class="bag_icon">
+              <img src="./Asset/ICON/bag-shopping-solid.svg" alt="" />
+            </span>
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      `;
+    }
+  });
 }
